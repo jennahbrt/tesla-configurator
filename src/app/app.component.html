@@ -179,7 +179,17 @@
 
 <main class="main">
   <div class="content">
-    <app-home></app-home>
+    <nav>
+      <button id="step1">
+        <a routerLink="/step1" routerLinkActive="router-link-active"> Step 1</a>
+      </button>
+      <button id="step2">
+        <a routerLink="/step2" routerLinkActive="router-link-active"> Step 2</a>
+      </button>
+    </nav>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </main>
 
@@ -192,4 +202,3 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
-<router-outlet></router-outlet>
