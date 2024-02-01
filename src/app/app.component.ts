@@ -3,20 +3,22 @@ import {AsyncPipe, JsonPipe} from '@angular/common';
 import { HomeComponent } from "./home/home.component";
 import { routes } from './app.routes';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: 'app.component.html',
-    imports: [AsyncPipe, 
+    imports: [
+      AsyncPipe, 
       JsonPipe,
     
       HomeComponent,
-      routes,
       HttpClientModule,
+      RouterModule
     ],
 })
 export class AppComponent {
-  name = 'Angular';
+  title = 'tesla-configurator';
 
 }
