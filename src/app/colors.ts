@@ -1,5 +1,5 @@
 export interface Colors {
-    name: string,
-    details: string,
+    code: string,
+    description: string,
     price: number
 }

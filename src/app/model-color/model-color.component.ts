@@ -3,6 +3,7 @@ import { BaseCar } from '../base-car';
 import { Colors } from '../colors';
 import { ModelColorService } from './model-color.service';
 import { NgFor } from '@angular/common';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-model-color',
@@ -18,12 +19,16 @@ export class ModelColorComponent {
     this.cars = this.modelColorService.getCars();
   }
 
-  color: Colors = {name: '', details: '', price:0};
+  color: Colors = {code: '', description: '', price:0};
   cars: BaseCar[] = [];
 
-  getCar(i: number): BaseCar {
+  getCar(i: number): BaseCar[] {
     let array:BaseCar[] = [];
+
     array = this.modelColorService.getCars();
-    return array[i]
+    array.forEach(
+      car => {car.code, car.description, car.colors}
+    );
+    return array;
   }
 }

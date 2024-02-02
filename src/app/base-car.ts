@@ -1,7 +1,7 @@
 import { Colors } from "./colors";
 
 export class BaseCar{
-    id!: string;
-    details!: string;
+    code!: string;
+    description!: string;
     colors!: Colors[]    
 }
