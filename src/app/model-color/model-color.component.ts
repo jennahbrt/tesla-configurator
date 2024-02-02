@@ -1,14 +1,15 @@
+import { CommonModule, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 import { BaseCar } from '../base-car';
 import { Colors } from '../colors';
 import { ModelColorService } from './model-color.service';
-import { NgFor } from '@angular/common';
-import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-model-color',
   standalone: true,
-  imports: [NgFor],
+  imports: [FormsModule, MatSelectModule, UpperCasePipe, CommonModule],
   templateUrl: './model-color.component.html',
   styleUrl: './model-color.component.scss'
 })
@@ -19,8 +20,11 @@ export class ModelColorComponent {
     this.cars = this.modelColorService.getCars();
   }
 
-  color: Colors = {code: '', description: '', price:0};
-  cars: BaseCar[] = [];
+  selected: BaseCar;
+  color: Colors;
+  cars: BaseCar[];
+
+
 
   getCar(i: number): BaseCar[] {
     let array:BaseCar[] = [];

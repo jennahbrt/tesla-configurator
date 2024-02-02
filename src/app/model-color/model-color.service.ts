@@ -13,15 +13,7 @@ export class ModelColorService {
     return this.http.get<BaseCar[]>('/models')
   }
   getCars():BaseCar[]{
-    let array:BaseCar[] = [];
-    // this.fetchBaseCar()
-    // .pipe(
-    //   map(val => ({ ...val,
-    //     array = val;
-    //   })
-    // )
-    
-    
+    let array:BaseCar[] = [];    
     this.fetchBaseCar().subscribe((response)=>{
       response.forEach(element => {
         let c = new BaseCar();
@@ -30,15 +22,6 @@ export class ModelColorService {
         c.colors = element.colors;
         array.push(c);        
       })});
-
-      
-      //   for (let value in response){
-        //     let c = new BaseCar();
-        //     c = response[value]
-        //     array.push(c);
-        //   }
-        // })
-        // return array;
-        return array;
+    return array;
   }
 }
