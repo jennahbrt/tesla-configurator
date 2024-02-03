@@ -1,5 +1,5 @@
 import { CommonModule, UpperCasePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChange, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { BaseCar } from '../base-car';
@@ -20,19 +20,9 @@ export class ModelColorComponent {
     this.cars = this.modelColorService.getCars();
   }
 
-  selected: BaseCar;
-  color: Colors;
-  cars: BaseCar[];
 
-
-
-  getCar(i: number): BaseCar[] {
-    let array:BaseCar[] = [];
-
-    array = this.modelColorService.getCars();
-    array.forEach(
-      car => {car.code, car.description, car.colors}
-    );
-    return array;
-  }
+  cars: BaseCar[] = [];
+  color: Colors = {code: '', description:'', price: 0};
+  selectedModel: BaseCar = {code:'', description:'', colors:[this.color]};
+  // selectedColor: Colors = {};
 }

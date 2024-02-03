@@ -6,10 +6,15 @@
 <!-- <p [model]="selectedModel"></p> -->
 
 <mat-form-field>
-    <mat-select [(value)]="selected">
-      <mat-option>None</mat-option>
-      <mat-option *ngFor="let car of cars" value={{car.code}}>{{car.code | uppercase}}</mat-option>
+    <mat-select [(value)]="selectedModel" id="modelSelect">
+      <mat-option *ngFor="let car of cars" [value]=car>{{car.code | uppercase}}</mat-option>
     </mat-select>
-  </mat-form-field>
-  
-  <p>You selected: {{selected}}</p>
+    
+    
+    <!-- <mat-select [(value)]="selectedColor">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let color of selectedModel.colors" value={{color.code}}>{{color.code | uppercase}}</mat-option>
+    </mat-select> -->
+</mat-form-field>
+<p>You selected: {{selectedModel.code}}</p>
+<p> {{selectedModel.description}}</p>
